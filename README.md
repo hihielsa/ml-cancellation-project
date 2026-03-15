@@ -164,6 +164,7 @@ The Swagger interface allows users to test the prediction API directly.
 ml-cancellation-project
 │
 ├── app.py
+├── train_model.py
 ├── model.pkl
 ├── Dockerfile
 ├── requirements.txt
