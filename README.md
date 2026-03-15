@@ -101,6 +101,7 @@ The API performs the following steps:
 4. Return prediction and probability
 
 This demonstrates a real-time machine learning inference service.
+
 -----------------------------------
 ### Containerization
 The application is containerized using Docker to ensure consistent runtime environments across development and deployment.
