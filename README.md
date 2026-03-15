@@ -31,6 +31,15 @@ Key components of the architecture include:
 - Monitoring tools for application health and performance
 
 This architecture demonstrates a cohesive cloud-native analytics application pipeline.
+
+## Prediction API
+
+![Prediction API](screenshots/API.png)
+
+## Prediction API
+
+![Prediction API](screenshots/API.png)
+
 ----------------------------------------------------
 ### Dataset
 The model is trained using the **thelook_ecommerce** dataset available in BigQuery Public Data.
@@ -166,6 +175,9 @@ The Swagger interface allows users to test the prediction API directly.
 ```
 ml-cancellation-project
 │
+├── screenshots
+│   ├── API.png
+│   └── monitoring.png
 ├── app.py
 ├── train_model.py
 ├── model.pkl
