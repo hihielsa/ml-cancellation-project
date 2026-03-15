@@ -14,7 +14,9 @@ E --> F[Docker Container]
 F --> G[AWS EC2 Deployment]
 
 G --> H[Prediction Endpoint]
-G --> I[Monitoring Dashboard]
+
+G --> P[Prometheus Metrics Collection]
+P --> Q[Grafana Monitoring Dashboard]
 
 J[GitHub Repository] --> K[GitHub Actions CI/CD]
 K --> F
