@@ -36,9 +36,9 @@ This architecture demonstrates a cohesive cloud-native analytics application pip
 
 ![Prediction API](screenshots/API.png)
 
-## Prediction API
+## Monitoring
 
-![Prediction API](screenshots/API.png)
+![Monitoring](screenshots/monitoring.png)
 
 ----------------------------------------------------
 ### Dataset
