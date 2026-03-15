@@ -1,10 +1,6 @@
 # Cloud-Native Order Cancellation Prediction Application
 ## Architecture
 
-The system follows a cloud-native architecture where data is used to train a model that is deployed as a containerized microservice in the cloud.
-
-## Architecture
-
 The system follows a cloud-native architecture where data is used to train a machine learning model that is deployed as a containerized microservice.
 
 ```mermaid
@@ -50,7 +46,7 @@ ORDER BY RAND()
 LIMIT 8000
 ```
 This query extracts key order attributes and generates a binary label (`is_cancelled`) used to train an XGBoost classifier that predicts order cancellation risk.
-This dataset is used to train a supervised learning model that predicts whether an order will be cancelled.
+
 -------------------------------------------------
 ### Machine Learning Model
 An **XGBoost classifier** is trained to predict order cancellation risk.
@@ -126,4 +122,54 @@ COPY model.pkl .
 EXPOSE 8000
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+Containerization allows the application to be deployed consistently across different cloud environments.
 
+---------------------------------
+### Deployment from GitHub
+The project source code is stored in a GitHub repository.
+
+A GitHub Actions workflow is used to automatically build the application when new code is pushed to the repository.
+
+Deployment pipeline:
+
+```mermaid
+flowchart TD
+    A[GitHub Repository] --> B[GitHub Actions Workflow]
+    B --> C[Build Docker Container]
+    C --> D[Deploy to Cloud Environment]
+```
+This automated pipeline demonstrates continuous integration and deployment practices commonly used in cloud-native applications.
+### Monitoring
+The deployed application is monitored using cloud monitoring tools.
+
+Monitoring dashboards track metrics such as:
+- service availability
+- request activity
+- system health
+Monitoring ensures that the application remains operational and provides visibility into system performance.
+
+### How to Run the Application Locally
+#### Build Docker Image
+`docker build -t cancellation-api .`
+#### Run Container
+`docker run -p 8000:8000 cancellation-api`
+#### Access API Documentation
+Open:
+`http://localhost:8000/docs`
+
+The Swagger interface allows users to test the prediction API directly.
+
+### Repository Structure
+```
+ml-cancellation-project
+│
+├── app.py
+├── model.pkl
+├── Dockerfile
+├── requirements.txt
+└── README.md
+```
+## Conclusion
+This project demonstrates how a machine learning model can be integrated into a cloud-native analytics application. The system includes data extraction, model training, containerized deployment, automated build pipelines, and monitoring.
+
+By combining machine learning with modern cloud infrastructure, the application provides a scalable framework for deploying predictive analytics services in production environments.
